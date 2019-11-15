@@ -313,6 +313,7 @@ stats = neural_network.train(X_train,y_train,X_val,y_val,num_iters=10000,
 plt.plot(stats['loss_history'])
 plt.title("loss history")
 plt.ylabel('Loss')
+plt.show()
 
 val_acc = np.mean(neural_network.predict(X_val)==y_val)
 print("val accuracy:",val_acc)
