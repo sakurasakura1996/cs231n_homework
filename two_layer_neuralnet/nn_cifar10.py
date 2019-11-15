@@ -266,7 +266,7 @@ class TwoLayerNet(object):
                 learning_rate *= learning_rate_decay
 
         return {
-                'loss_history':train_acc_history,
+                'loss_history':loss_history,
                 'train_acc_history':train_acc_history,
                 'val_acc_history':val_acc_history,
             }
@@ -305,12 +305,12 @@ neural_network = TwoLayerNet(input_dim,hidden_dim,num_classes)
 
 X_train,y_train,X_val,y_val,X_test,y_test = loadfile()
 # train the network
-stats = neural_network.train(X_train,y_train,X_val,y_val,num_iters=10000,
+stats = neural_network.train(X_train,y_train,X_val,y_val,num_iters=3000,
                              batch_size=200,learning_rate=1e-4,learning_rate_decay=0.95,
                              reg=0.5,verbose=True)
 
 #predict on the validation set
-plt.plot(stats['loss_history'])
+plt.plot(range(3000), stats['loss_history'])
 plt.title("loss history")
 plt.ylabel('Loss')
 plt.show()
